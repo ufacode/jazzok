@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.1'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -32,18 +32,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
-
 group :development do
   gem 'better_errors'
   gem 'meta_request'
   gem 'sextant'
   gem 'quiet_assets'
   gem 'bullet'
+  gem 'rubocop', require: false
 end
 
 group :production do
@@ -51,21 +46,24 @@ group :production do
 end
 
 group :test, :development do
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
   gem "rspec-rails", "~> 3.0"
   gem "factory_girl_rails"
   gem "capybara"
-  # gem 'capybara-screenshot'
-  # gem 'poltergeist'
+  gem 'capybara-screenshot'
+  gem 'poltergeist'
   gem "database_cleaner"
-  # gem "selenium-webdriver"
+  gem "selenium-webdriver"
 end
 
 gem 'devise'
 gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 # gem 'omniauth-twitter'
-# gem 'omniauth-facebook'
 # gem 'omniauth-linkedin'
-# gem 'omniauth-vkontakte'
 # gem 'omniauth-github'
 
 gem 'russian' # russian lang
@@ -77,5 +75,7 @@ gem 'airbrake' # errbit notifications
 gem 'bootstrap-sass', '~> 3.3' # bootstrap
 gem 'autoprefixer-rails' # css prefixer
 gem 'nprogress-rails' # turbolinks progressbar
+gem 'rails_config'
+gem 'acts-as-taggable-on'
+gem 'font-awesome-sass', '~> 4.3.0'
 
-gem 'dotenv-rails'
