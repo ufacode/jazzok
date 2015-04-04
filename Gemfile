@@ -53,9 +53,10 @@ group :test, :development do
   gem "factory_girl_rails"
   gem "capybara"
   gem 'capybara-screenshot'
-  gem 'poltergeist'
   gem "database_cleaner"
-  gem "selenium-webdriver"
+  gem 'poltergeist'
+  gem 'launchy'
+  gem 'faker'
 end
 
 gem 'devise'

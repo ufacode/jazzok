@@ -1,3 +1,4 @@
 class Category < ActiveRecord::Base
-  validates_presence_of :name, :uri
+  validates :name, presence: true
+  validates :uri, presence: true, uniqueness: true
 end
