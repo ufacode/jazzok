@@ -79,4 +79,4 @@ gem 'nprogress-rails' # turbolinks progressbar
 gem 'rails_config'
 gem 'acts-as-taggable-on'
 gem 'font-awesome-sass', '~> 4.3.0'
-
+gem 'commontator', '~> 4.10.0'

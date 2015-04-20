@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  acts_as_commontator
+
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
 
@@ -8,6 +10,7 @@ class User < ActiveRecord::Base
          :trackable, :validatable, :confirmable, :omniauthable
 
   validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
+  has_many :identities, dependent: :destroy
 
   def admin?
     role == 'admin'

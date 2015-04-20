@@ -2,54 +2,62 @@
 <div class="bar-mid">
   <div class="container">
     <div class="row">
-      <div class="col-md-3 col-xs-3 col-xs-sp"><!-- user-panel -->
-        <div class="user-panel">
-          <div class="user-panel-img">
-            <img src="http://placehold.it/38x38" alt="//"/>
+      <div class="col-md-3 col-xs-3 col-xs-sp">
+        <!-- user-panel -->
+        <% if user_signed_in? %>
+          <div class="user-panel">
+            <div class="user-panel-img">
+              <img src="http://placehold.it/38x38" alt="//"/>
+            </div>
+            <span class="user-tag">3</span>
+            <span class="name-user"><%= current_user.name %></span>
+            <div class="dropdown down-user-panel">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-angle-down fa-lg"></i>
+              </a>
+              <ul class="dropdown-menu user-panel-down" role="menu">
+                <!-- drop down -->
+                <li class="caret-p">
+                  <div class="caret-3"></div>
+                </li>
+                <li>
+                  <!-- item -->
+                  <div class="user-panel-details">
+                    <i class="fa fa-user fa-lg"></i>
+                    <a href="#"><span>Your Profile</span></a>
+                  </div>
+                  <div class="user-panel-tags">
+                    <span>5</span>
+                  </div>
+                </li>
+                <li class="background-dif">
+                  <!-- item -->
+                  <div class="user-panel-details">
+                    <i class="fa fa-star fa-lg"></i>
+                    <a href="#"><span>Favourites</span></a>
+                  </div>
+                  <div class="user-panel-tags">
+                    <span>10</span>
+                  </div>
+                </li>
+                <li>
+                  <!-- item -->
+                  <div class="user-panel-details">
+                    <i class="fa fa-wrench fa-lg"></i>
+                    <a href="#"><span>Settings</span></a>
+                  </div>
+                </li>
+                <li>
+                  <!-- item -->
+                  <div class="user-panel-details">
+                    <i class="fa fa-sign-out fa-lg"></i>
+                    <a href="#"><span>Logout</span></a>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
-          <span class="user-tag">3</span>
-          <span class="name-user">user name</span>
-          <div class="dropdown down-user-panel">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-angle-down fa-lg"></i>
-            </a>
-            <ul class="dropdown-menu user-panel-down" role="menu"><!-- drop down -->
-              <li class="caret-p">
-                <div class="caret-3"></div>
-              </li>
-              <li><!-- item -->
-                <div class="user-panel-details">
-                  <i class="fa fa-user fa-lg"></i>
-                  <a href="#"><span>Your Profile</span></a>
-                </div>
-                <div class="user-panel-tags">
-                  <span>5</span>
-                </div>
-              </li>
-              <li class="background-dif"><!-- item -->
-                <div class="user-panel-details">
-                  <i class="fa fa-star fa-lg"></i>
-                  <a href="#"><span>Favourites</span></a>
-                </div>
-                <div class="user-panel-tags">
-                  <span>10</span>
-                </div>
-              </li>
-              <li><!-- item -->
-                <div class="user-panel-details">
-                  <i class="fa fa-wrench fa-lg"></i>
-                  <a href="#"><span>Settings</span></a>
-                </div>
-              </li>
-              <li><!-- item -->
-                <div class="user-panel-details">
-                  <i class="fa fa-sign-out fa-lg"></i>
-                  <a href="#"><span>Logout</span></a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <% end %>
       </div>
       <div class="col-md-1 col-md-offset-1 col-sm-offset-1 col-sm-1 col-xs-sp"><!-- shopping cart -->
         <div class="shopping-cart">
