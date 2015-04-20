@@ -23,18 +23,19 @@
                       </ul>
                       <div class="tab-content">
                         <div class="sign-in-form tab-pane fade in active" id="section-3"> <!-- tab section-1 -->
-                          <form role="form" class="sign-place"><!-- sign -->
-													      <span class="text-capitalize sign-title">
-													          hello world, you can sign in by your e-mail here
-													      </span>
-                            <input type="text" class="text-capitalize forms form-sign input-lg" placeholder="user name">
-                            <input type="text" class="text-capitalize forms form-sign input-lg" placeholder="password">
-                            <button type="button" class="btn btn-sign-forms">sign in</button>
-                          </form>
+                          <%= form_for(@resource, as: resource_name, url: session_path(resource_name), html: {role: 'form', class: 'sign-place'}) do |f| %>
+                            <!-- sign -->
+                            <span class="text-capitalize sign-title">
+                              hello world, you can sign in by your e-mail here
+                            </span>
+                            <%= f.email_field :email, autofocus: true, class: "text-capitalize forms form-sign input-lg", placeholder: "user name" %>
+                            <%= f.password_field :password, autocomplete: "off", class: "text-capitalize forms form-sign input-lg", placeholder: "password" %>
+                            <input type="submit" value="sign in" class="btn btn-sign-forms" />
+                          <% end %>
                           <a class="under-line-a" href="#">
-													      <span class="text-capitalize alert-title">
-													         forget password?
-													      </span>
+                            <span class="text-capitalize alert-title">
+                               forget password?
+                            </span>
                           </a>
                         </div>
                         <div class="sign-up-form tab-pane fade" id="section-4"> <!-- tab section-2 -->

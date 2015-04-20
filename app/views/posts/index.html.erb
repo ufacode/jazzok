@@ -2,14 +2,89 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3 class="head-text">Blog list view</h3>
+        <h3 class="head-text">Posts</h3>
         <span class="underline big"><em> </em></span>
       </div>
     </div>
     <div class="row">
       <div class="col-md-9">
         <div class="blog-list-content">
-          <div class="list-blog-m list-blog-blocks"><!--block-->
+          <%= link_to '+ Add post', new_post_path, class: 'btn btn-success pull-right' if user_signed_in? %>
+          <% @posts.each do |post| %>
+            <div class="list-blog-m list-blog-blocks">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="left-list-block effects-list">
+                    <div class="small-hidden head-small-tags red-small-bg">
+                      <i class="fa fa-video-camera fa-lg"></i>
+                    </div>
+                    <div class="head-tags red-bg">
+                      <span class="head-title">movie</span>
+                    </div>
+                    <ul class="img-shop-list">
+                      <li>
+                        <a href="single-blog.html">
+                          <img src="http://placehold.it/274x265" alt="//"/>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="list-blog-text">
+                    <a href="<%= post_path(post) %>"><h4><%= post.title %></h4></a>
+                    <p>
+                      <%= post.intro %>...
+                    </p>
+                    <span>Dec 13th 2013 | 10.30 am</span>
+                    <ul class="icons-list-blog">
+                      <li class="icons-hover">
+                        <span class="hover icons first">
+                          <%= post.user.name %>
+											  </span>
+                        <a class="cast-link" href="#">
+                          <i class="fa fa-user fa-lg list-icons"></i>
+                        </a>
+                      </li>
+                      <li class="icons-hover">
+										      <span class="hover icons">
+											      230
+											  </span>
+                        <a class="cast-link" href="#">
+                          <i class="fa fa-comments fa-lg list-icons"></i>
+                        </a>
+                      </li>
+                      <li class="icons-hover">
+										      <span class="hover icons">
+											      260
+											  </span>
+                        <a class="cast-link" href="#">
+                          <i class="fa fa-eye fa-lg list-icons"></i>
+                        </a>
+                      </li>
+                      <li class="icons-hover">
+										      <span class="hover icons">
+											      8.0
+											  </span>
+                        <a class="cast-link" href="#">
+                          <i class="fa fa-heart fa-lg list-icons"></i>
+                        </a>
+                      </li>
+                      <li class="icons-hover">
+                        <a class="cast-link" href="#">
+                          <i class="fa fa-share-square fa-lg list-icons"></i>
+                        </a>
+                      </li>
+                    </ul>
+                    <%= link_to 'READ MORE', post, class: 'btn btn-blog-blocks' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+<!--
+          <div class="list-blog-m list-blog-blocks">
             <div class="row">
               <div class="col-md-5">
                 <div class="left-list-block effects-list">
@@ -82,7 +157,7 @@
               </div>
             </div>
           </div>
-          <div class="list-blog-m list-blog-blocks"><!--block-->
+          <div class="list-blog-m list-blog-blocks">&lt;!&ndash;block&ndash;&gt;
             <div class="row">
               <div class="col-md-5">
                 <div class="left-list-block effects-list">
@@ -155,7 +230,7 @@
               </div>
             </div>
           </div>
-          <div class="list-blog-m list-blog-blocks"><!--block-->
+          <div class="list-blog-m list-blog-blocks">&lt;!&ndash;block&ndash;&gt;
             <div class="row">
               <div class="col-md-5">
                 <div class="left-list-block effects-list carousel slide" data-ride="carousel" id="carousel-gallery-2">
@@ -245,7 +320,7 @@
               </div>
             </div>
           </div>
-          <div class="list-blog-blocks last-child"><!--block-->
+          <div class="list-blog-blocks last-child">&lt;!&ndash;block&ndash;&gt;
             <div class="row">
               <div class="col-md-5">
                 <div class="left-list-block effects-list">
@@ -318,9 +393,13 @@
               </div>
             </div>
           </div>
+-->
         </div>
 
-        <div class="row"><!-- pages numbers -->
+        <div class="row">
+          <!-- pages numbers -->
+          <%= paginate @posts %>
+<!--
           <div class="pages-numbers">
             <div class="col-md-7">
               <div class="numbers-content">
@@ -339,8 +418,10 @@
               </div>
             </div>
           </div>
+-->
         </div>
       </div>
+
       <div class="col-md-3"><!-- right side page -->
         <div class="products-details">
           <div class="">
@@ -497,6 +578,7 @@
           <!-- end categories -->
         </div>
       </div>
+
     </div>
   </div>
   <!-- end container -->
